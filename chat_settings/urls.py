@@ -29,5 +29,6 @@ urlpatterns = [
     path('user/',include('client.urls')),
     path('chat/',include('chat.urls')),
     re_path(r"^$", index),
-    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)[0],
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns+=[re_path(".*", index)]
